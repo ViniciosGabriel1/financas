@@ -8,7 +8,7 @@ class UsuarioModel extends Model
 {
     protected $table            = 'usuarios';
     protected $primaryKey       = 'id';
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     // protected $useSoftDeletes   = false;
     // protected $protectFields    = true;
     protected $allowedFields = ['username', 'email', 'password']; // Adicione todos os campos necessários aqui

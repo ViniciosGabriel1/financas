@@ -1,13 +1,31 @@
 $(function () {
 
+  var today = new Date();
 
+  // Obter o dia da semana (0 = domingo, 1 = segunda-feira, ..., 6 = sábado)
+  var dayOfWeek = today.getDay();
+  
+  // Calcular a data do domingo desta semana subtraindo o número de dias desde o início da semana
+  var sundayDate = new Date(today);
+  sundayDate.setDate(today.getDate() - dayOfWeek);
+  
+  // Array para armazenar as datas da semana
+  var weekDays = [];
+  
+  // Adicionar as datas da semana ao array
+  for (var i = 0; i < 7; i++) {
+    var currentDate = new Date(sundayDate);
+    currentDate.setDate(sundayDate.getDate() + i);
+    var formattedDate = currentDate.toLocaleDateString('pt-BR'); // Formatar a data como necessário
+    weekDays.push(formattedDate);
+  }
   // =====================================
   // Profit
   // =====================================
   var chart = {
     series: [
-      { name: "Earnings this month:", data: [355, 390, 300, 350, 390, 180, 355, 390] },
-      { name: "Expense this month:", data: [280, 250, 325, 215, 250, 310, 280, 250] },
+      { name: "Earnings this month:", data: [3505, 390, 300, 350, 390, 180, 355] },
+      { name: "Expense this month:", data: [2820, 250, 3252, 215, 2250, 310, 280] },
     ],
 
     chart: {
@@ -21,7 +39,7 @@ $(function () {
     },
 
 
-    colors: ["#5D87FF", "#49BEFF"],
+    colors: ["#13DEB9", "#539BFF"],
 
 
     plotOptions: {
@@ -57,7 +75,7 @@ $(function () {
 
     xaxis: {
       type: "category",
-      categories: ["16/08", "17/08", "18/08", "19/08", "20/08", "21/08", "22/08", "23/08"],
+      categories: weekDays,
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },
@@ -67,7 +85,7 @@ $(function () {
     yaxis: {
       show: true,
       min: 0,
-      max: 400,
+      max: 900,
       tickAmount: 4,
       labels: {
         style: {
@@ -138,7 +156,7 @@ $(function () {
     legend: {
       show: false,
     },
-    colors: ["#5D87FF", "#ecf2ff", "#F9F9FD"],
+    colors: ["#00FF00", "rgba(73,190,255,0.85)", "#FA896B"],
 
     responsive: [
       {
