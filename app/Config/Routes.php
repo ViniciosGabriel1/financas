@@ -20,10 +20,18 @@ $routes->post('register/register_submit', 'Register::register_submit');
 $routes->get('auth/logout', 'Auth::logout');
 
 
-
 //DashBoard
 
 $routes->get('dash/index', 'Dash::index');
+
+
+//forms
+$routes->get('forms/salary_form', 'Salary::salary_form');
+$routes->post('forms/salary_submit', 'Salary::salary_submit');
+
+$routes->get('forms/spent_form', 'Spent::Spent_form');
+$routes->post('forms/spent_submit', 'Spent::Spent_submit');
+
 
 
 

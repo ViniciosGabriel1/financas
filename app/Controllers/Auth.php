@@ -64,13 +64,12 @@ class Auth extends BaseController
 
     public function logout()
     {
-        // Obter a instância da sessão
-        $session = session();
-
-        // Remover os dados da sessão do usuário
-        $session->remove(['user_id', 'username']);
-
+        // Remover apenas os dados de autenticação da sessão
+        session()->remove('user');
+        
         // Redirecionar o usuário para a página de login ou para a página inicial
         return redirect()->to('auth/login_form');
     }
+    
+    
 }

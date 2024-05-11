@@ -6,7 +6,6 @@
 <?php echo $this->endSection() ?>
 
 
-
 <?php $this->section('content') ?>
 
 
@@ -17,42 +16,65 @@
         seu id é <?php echo session()->get('user')->id; ?>
 
     <?php endif ?>
+    <!-- Na view dash/index.php -->
+    <!-- Exibir dados de gastos -->
+    <?php
+    $totalGastos = 0;
+
+    foreach ($amount_spent as $gasto) {
+        // Adicionar o valor do gasto ao total
+        $totalGastos += $gasto->value;
+    }
+    // Exibir o total de gastos
+    ?>
+
+
     <div class="row">
+    <div class="col-sm-6 col-xl-4">
+    <div class="card text-bg-light-success m-4 hover-scale" style="max-width: 18rem;">
+        <div class="card-header bg-secundary text-success"><strong><i class="bi bi-currency-dollar"></i> Resumo Financeiro</strong></div>
+        <div class="card-body">
+            <h5 class="card-title text-success"><span class="bi bi-wallet2"></span> Saldo Disponível</h5>
+            <?php
+            // Calcular o saldo disponível
+            $saldo = $balance->value - $totalGastos;
+
+            // Verificar se o saldo é negativo (indicando déficit)
+            if ($saldo < 0) {
+                // Se for negativo, exibir em vermelho
+                ?>
+                <h5 class="card-title text-danger">R$ <?= number_format($saldo, 2, ',', '.')?></h5>
+            <?php } else {
+                // Senão, exibir em verde
+                ?>
+                <h5 class="card-title text-success">R$ <?= number_format($saldo, 2, ',', '.') ?></h5>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+
         <div class="col-sm-6 col-xl-4">
-            <div class="card text-bg-success mb- hover-scale" style="max-width: 18rem;">
-                <div class="card-header bg-secundary text-white">Resumo Financeiro</div>
+            <div class="card text-bg-light-danger m-4 hover-scale" style="max-width: 18rem;">
+                <div class="card-header bg-secundary text-danger"><strong><i class="bi bi-wallet2"></i> Finanças Mensais</strong></div>
                 <div class="card-body">
-                    <h5 class="card-title"><span class="bi bi-wallet2"></span> Saldo Disponível</h5>
-                    <p class="card-text">R$ 5000,00</p>
-                    <h5 class="card-title"><span class="bi bi-credit-card"></span> Total de Dívidas</h5>
-                    <p class="card-text">R$ 1500,00</p>
+
+                    <h5 class="card-title text-danger"><span class="bi bi-cash-stack"></span> Renda Mensal</h5>
+                    <?= '<h5>R$ '.$salary->value.'</h5>' ?>
 
                 </div>
             </div>
         </div>
 
-            <div class="col-sm-6 col-xl-4">
-                <div class="card text-bg-warning mb- hover-scale" style="max-width: 18rem;">
-                    <div class="card-header bg-secundary text-white">Resumo Financeiro</div>
-                    <div class="card-body">
-                        <h5 class="card-title"><span class="bi bi-cash"></span> Despesas Mensais</h5>
-                        <p class="card-text">R$ 2000,00</p>
-                        <h5 class="card-title"><span class="bi bi-cash-stack"></span> Renda Mensal</h5>
-                        <p class="card-text">R$ 6000,00</p>
-
-                    </div>
-                </div>
-        </div>
 
         <div class="col-sm-6 col-xl-4">
-            <div class="card text-bg-info mb-12 hover-scale" style="max-width: 18rem;">
-                <div class="card-header bg-secundary text-white">Objetivos Financeiros</div>
+            <div class="card text-bg-light-info m-4 hover-scale" style="max-width: 18rem;">
+                <div class="card-header bg-secundary text-info"><strong><i class="bi bi-bank2"></i> Objetivos Financeiros</strong></div>
                 <div class="card-body">
+                
+                    <h5 class="card-title text-info"><span  class="bi bi-piggy-bank"></span> Porquinho</h5>
+                    <p class="card-text"> R$ 10000,00</p>
 
-                    <h5 class="card-title"><span class="bi bi-gear"></span> Metas Financeiras</h5>
-                    <p class="card-text">R$ 10000,00</p>
-                    <h5 class="card-title"><span class="bi bi-calendar-check"></span> Prazo das Metas</h5>
-                    <p class="card-text">6 meses</p>
                 </div>
             </div>
         </div>
@@ -256,6 +278,7 @@
                                         <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                                     </td>
                                 </tr>
+                                
                                 <tr>
                                     <td class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">2</h6>

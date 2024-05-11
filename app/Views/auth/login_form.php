@@ -13,6 +13,20 @@
                 <div class="col-md-8 col-lg-6 col-xxl-3">
                     <div class="card mb-0">
                         <div class="card-body">
+                        <?php if (session()->has('erro_auth')) : ?>
+                                    <div class="alert alert-info">
+                                        <?php
+                                        $errors = session()->getFlashdata('erro_auth');
+                                        if (is_array($errors)) {
+                                            foreach ($errors as $error) {
+                                                echo $error . '<br>'; // ou qualquer formato que você deseja usar para exibir as mensagens de erro
+                                            }
+                                        } else {
+                                            echo $errors; // Se for apenas uma mensagem de erro única, imprima-a diretamente
+                                        }
+                                        ?>
+                                    </div>
+                                <?php endif; ?>
                             <a href="<?= base_url('/auth/login_form') ?>" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                 <img src="<?= base_url('assets/images/logos/dark-logo.svg'); ?>" width="180" alt="">
                             </a>

@@ -19730,15 +19730,20 @@ fieldset:disabled .btn {
 }
 
 .sidebar-nav ul .sidebar-item .sidebar-link:hover {
+    transition: background-color 0.3s ease, color 0.3s ease;
+
     background-color: #13DEB9;
     color: white
 }
 
 .sidebar-nav ul .sidebar-item .sidebar-link:hover.has-arrow:after {
+    transition: border-color 0.3s ease;
     border-color: #5D87FF
 }
 
 .sidebar-nav ul .sidebar-item .sidebar-link.active:hover.has-arrow:after {
+    transition: background-color 0.3s ease, color 0.3s ease;
+
     border-color: #fff
 }
 

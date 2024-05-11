@@ -17,7 +17,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" href="<?= base_url('/dash/index') ?>" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -31,33 +31,33 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                <i class="bi bi-bank2"></i>
                 </span>
-                <span class="hide-menu">Buttons</span>
+                <span class="hide-menu">Metas Financeiras</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-alertbi bi-piggy-bank"></i>
                 </span>
-                <span class="hide-menu">Alerts</span>
+                <span class="hide-menu ">Porquinho</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="<?= base_url('/forms/spent_form') ?>" aria-expanded="false">
                 <span>
-                  <i class="ti ti-cards"></i>
+                <i class="bi bi-x-diamond-fill"></i>
                 </span>
-                <span class="hide-menu">Card</span>
+                <span class="hide-menu">Gastos</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="<?= base_url('/forms/salary_form') ?>" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
-                <span class="hide-menu">Forms</span>
+                <span class="hide-menu">Inserir Renda Mensal</span>
               </a>
             </li>
             <li class="sidebar-item">
