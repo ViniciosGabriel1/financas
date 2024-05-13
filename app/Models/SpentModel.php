@@ -20,7 +20,7 @@ class SpentModel extends Model
     protected $returnType       = 'object';
     // protected $useSoftDeletes   = false;
     // protected $protectFields    = true;
-    protected $allowedFields    = ['value','user_id','descricao'];
+    protected $allowedFields    = ['value','user_id','descricao','created_at'];
 
     // protected bool $allowEmptyInserts = false;
     // protected bool $updateOnlyChanged = true;

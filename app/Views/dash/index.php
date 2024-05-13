@@ -11,11 +11,6 @@
 
 <div class="container-fluid">
 
-    <?php if (session()->has('user')) : ?>
-        Olá,<?php echo session()->get('user')->username; ?>
-        seu id é <?php echo session()->get('user')->id; ?>
-
-    <?php endif ?>
     <!-- Na view dash/index.php -->
     <!-- Exibir dados de gastos -->
     <?php
@@ -78,44 +73,49 @@
         </div>
 
 
-        <div class="col-sm-6 col-xl-4">
+        <div class="col-sm-6  mt-8 col-xl-4">
+    <?php if (empty($piggy)) : ?>
+        <!-- Mensagem de aviso se não houver porquinho -->
+        <div class="alert alert-warning" role="alert">
+            Você ainda não possui nenhum porquinho criado. <a href="<?= base_url('/forms/piggy_form') ?>" class="alert-link">Crie um agora</a>.
+        </div>
+    <?php else : ?>
+        <?php foreach ($piggy as $item) : ?>
             <div class="card text-bg-light-info m-4 hover-scale" style="max-width: 18rem;">
                 <div class="card-header  text-info d-flex justify-content-between align-items-center">
                     <strong>
-                        <i class="bi bi-bank2"></i> Economias
-                    </strong>
+                        <span class="bi bi-piggy-bank"></span> Porquinho</strong>
                     <a href="#" class="badge bg-info rounded-3 fw-semibold">Editar</a>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-info"><span class="bi bi-piggy-bank"></span> Porquinho </h5>
-                    <?php foreach ($piggy as $item) : ?>
-                        <h5 class="card-text text-info "> <?= ' R$ '. $item->goal .' / '. $item->value?></h5>
-                        <!-- Outras informações do piggy -->
-                    <?php endforeach; ?>
-                    
-
+                    <h5 class="card-title text-info"><span class="bi bi-piggy-bank"></span><?= $item->goal_title ?></h5>
+                    <h5 class="card-text text-info "> <?= ' R$ ' . $item->goal . ' / ' . $item->value ?></h5>
+                    <!-- Outras informações do porquinho -->
                 </div>
             </div>
-        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
+
 
     </div>
     <!--  Row 1 -->
     <div class="row">
-        <div class="col-lg-8 d-flex align-items-strech">
-            <div class="card w-100">
+        <div class="col-lg-12 m-5 d-flex align-items-strech">
+        <div class="card w-100 bg-light-info">
                 <div class="card-body">
                     <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                         <div class="mb-3 mb-sm-0">
-                            <h5 class="card-title fw-semibold">Sales Overview</h5>
+                            <h5 class="card-title fw-semibold text-info">Gastos Semanais</h5>
                         </div>
-                        <div>
+                        <!-- <div>
                             <select class="form-select">
                                 <option value="1">March 2023</option>
                                 <option value="2">April 2023</option>
                                 <option value="3">May 2023</option>
                                 <option value="4">June 2023</option>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                     <div id="chart"></div>
                 </div>
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Yearly Breakup -->
-                    <div class="card overflow-hidden">
+                    <!-- <div class="card overflow-hidden">
                         <div class="card-body p-4">
                             <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
                             <div class="row align-items-center">
@@ -156,11 +156,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-12">
                     <!-- Monthly Earnings -->
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-body">
                             <div class="row alig n-items-start">
                                 <div class="col-8">
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div id="earning"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -370,13 +370,15 @@
         <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
     </div>
 </div>
+<script>
+    var spentData = <?= json_encode($amount_spent) ?>;
+
+</script> 
 <?php echo $this->endSection() ?>
 
 <?php echo $this->section('scripts') ?>
 
-<script>
-    var spentData = <?= json_encode($amount_spent) ?>;
-</script>
+
 
 <!--Aqui coloco os estilos da view-->
 <?php echo $this->endSection() ?>

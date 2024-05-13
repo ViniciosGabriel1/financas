@@ -28,7 +28,7 @@
                                     </div>
                                 <?php endif; ?>
                             <a href="<?= base_url('/auth/login_form') ?>" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                <img src="<?= base_url('assets/images/logos/dark-logo.svg'); ?>" width="180" alt="">
+                                <img src="<?= base_url('assets/images/logos/codeigniter-logo.svg'); ?>" width="180" alt="">
                             </a>
 
 
@@ -46,7 +46,7 @@
                                         ?>
                                     </div>
                                 <?php endif; ?>
-                            <p class="text-center">Your Social Campaigns</p>
+                            <p class="text-center">Monitore seus gastos aqui.</p>
                             <form method="POST" action="<?= base_url('/auth/login_submit') ?>">
                             <?php if (session()->has('msg')) : ?>
                                     <div class="alert alert-danger">

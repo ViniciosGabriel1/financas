@@ -30,36 +30,26 @@ class Salary extends BaseController
 
         $user = session()->get('user');
         $userId = $user->id;
-                        
+
         $salario = $this->request->getPost('salary');
         // Recuperar o salário enviado pelo formulário
         if (empty($salario)) {
             return redirect()->back()->with('error', 'Por favor, preencha todos os campos.');
         }
-        
+
         // Armazenar o salário na sessão
         session()->set('salario', $salario);
-        
+
         // Criar um novo registro de salário na tabela salaries
-        $balanceModel = new BalanceModel();
         $salaryModel = new SalaryModel();
-        $data = [
-            'user_id' => $userId,
-            'amount' => $salario
-            // Outros campos, se houver
-        ];
-        $salaryModel->insert($data);
+        $salaryModel->where('user_id', $userId)->set(['value' => $salario])->update();
 
-        $data = [
-            'user_id' => $userId,
-            'value' => $salario
-            // Outros campos, se houver
-        ];
-        $balanceModel->insert($data);
+        // Atualizar o registro de saldo na tabela balances
+        $balanceModel = new BalanceModel();
+        $balanceModel->where('user_id', $userId)->set(['value' => $salario])->update();
 
-        
+
         // Redirecionar para a view 'index' no controlador 'Dash'
         return redirect()->to('/forms/spent_form')->with('success', 'Salário inserido com sucesso.');
-        
     }
 }

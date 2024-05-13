@@ -31,6 +31,8 @@ var chart = {
       foreColor: "#adb0bb",
       fontFamily: 'inherit',
       sparkline: { enabled: false },
+      background: '#EBF3FE', // Defina a cor de fundo desejada aqui
+
     },
 
 
@@ -80,7 +82,7 @@ var chart = {
     yaxis: {
       show: true,
       min: 0,
-      max: 900,
+      max: 200  ,
       tickAmount: 4,
       labels: {
         style: {

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
+  <title>Finanças</title>
   <link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/logos/favicon2.png'); ?>" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -36,8 +36,8 @@
   <script src="<?= base_url('assets/libs/apexcharts/dist/apexcharts.min.js'); ?>"></script>
   <script src="<?= base_url('assets/libs/simplebar/dist/simplebar.js'); ?>"></script>
   <script src="<?= base_url('assets/js/dashboard.js'); ?>"></script>
-  <script>    var spentData = <?= json_encode($amount_spent) ?>;
-</script>
+
+
 </body>
 
 </html>
