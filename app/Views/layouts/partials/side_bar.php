@@ -2,8 +2,8 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+          <a href="<?= base_url('/dash/index') ?>" class="text-nowrap logo-img">
+            <img src="../assets/images/logos/codeigniter-logo.svg" width="100" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -37,7 +37,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" href="<?= base_url('/forms/piggy_form') ?>" aria-expanded="false">
                 <span>
                   <i class="ti ti-alertbi bi-piggy-bank"></i>
                 </span>

@@ -1,32 +1,27 @@
-$(function () {
 
-  var today = new Date();
 
-  // Obter o dia da semana (0 = domingo, 1 = segunda-feira, ..., 6 = sábado)
-  var dayOfWeek = today.getDay();
-  
-  // Calcular a data do domingo desta semana subtraindo o número de dias desde o início da semana
-  var sundayDate = new Date(today);
-  sundayDate.setDate(today.getDate() - dayOfWeek);
-  
-  // Array para armazenar as datas da semana
-  var weekDays = [];
-  
-  // Adicionar as datas da semana ao array
-  for (var i = 0; i < 7; i++) {
-    var currentDate = new Date(sundayDate);
-    currentDate.setDate(sundayDate.getDate() + i);
-    var formattedDate = currentDate.toLocaleDateString('pt-BR'); // Formatar a data como necessário
-    weekDays.push(formattedDate);
-  }
-  // =====================================
-  // Profit
-  // =====================================
-  var chart = {
-    series: [
-      { name: "Earnings this month:", data: [3505, 390, 300, 350, 390, 180, 355] },
-      { name: "Expense this month:", data: [2820, 250, 3252, 215, 2250, 310, 280] },
-    ],
+  $(function () {
+
+    console.log(spentData)
+    var dates = [];
+var values = [];
+
+spentData.forEach(function(spent) {
+  // Extrair a data do gasto (você pode precisar ajustar a formatação da data conforme necessário)
+  var date = new Date(spent.created_at);
+  var formattedDate = date.toLocaleDateString('pt-BR');
+  dates.push(formattedDate);
+
+  // Extrair o valor do gasto
+  var value = parseFloat(spent.value); // Converter para número
+  values.push(value);
+});
+
+// Configurar o gráfico com as datas e os valores dos gastos
+var chart = {
+  series: [
+    { name: "Gastos", data: values }
+  ],
 
     chart: {
       type: "bar",
@@ -75,7 +70,7 @@ $(function () {
 
     xaxis: {
       type: "category",
-      categories: weekDays,
+      categories: dates,
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },

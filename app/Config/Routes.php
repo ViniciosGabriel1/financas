@@ -33,5 +33,12 @@ $routes->get('forms/spent_form', 'Spent::Spent_form');
 $routes->post('forms/spent_submit', 'Spent::Spent_submit');
 
 
+$routes->get('forms/piggy_form', 'Piggy::piggy_form');
+$routes->post('forms/piggy_submit', 'Piggy::piggy_submit');
+$routes->post('forms/financial_goal', 'Piggy::goal_submit');
+
+
+
+
 
 
