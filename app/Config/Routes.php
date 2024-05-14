@@ -23,6 +23,7 @@ $routes->get('auth/logout', 'Auth::logout');
 //DashBoard
 
 $routes->get('dash/index', 'Dash::index');
+$routes->get('spent/recoverExpenses', 'Spent::recoverExpenses');
 
 
 //forms

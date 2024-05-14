@@ -13,7 +13,7 @@
 
 <body>
   <!--  Body Wrapper -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" >
     <!-- Sidebar Start -->
     <?php include('partials/side_bar.php'); ?>
     <!--  Sidebar End -->
@@ -36,7 +36,7 @@
   <script src="<?= base_url('assets/libs/apexcharts/dist/apexcharts.min.js'); ?>"></script>
   <script src="<?= base_url('assets/libs/simplebar/dist/simplebar.js'); ?>"></script>
   <script src="<?= base_url('assets/js/dashboard.js'); ?>"></script>
-
+  <?php echo $this->renderSection('scripts'); ?>
 
 </body>
 

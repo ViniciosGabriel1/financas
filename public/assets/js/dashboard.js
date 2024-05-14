@@ -3,20 +3,26 @@
   $(function () {
 
     console.log(spentData)
-    var dates = [];
-var values = [];
+    var groupedData = {};
 
-spentData.forEach(function(spent) {
-  // Extrair a data do gasto (você pode precisar ajustar a formatação da data conforme necessário)
-  var date = new Date(spent.created_at);
-  var formattedDate = date.toLocaleDateString('pt-BR');
-  dates.push(formattedDate);
-
-  // Extrair o valor do gasto
-  var value = parseFloat(spent.value); // Converter para número
-  values.push(value);
-});
-
+    spentData.forEach(function(spent) {
+      // Extrair a data do gasto (você pode precisar ajustar a formatação da data conforme necessário)
+      var date = new Date(spent.created_at);
+      var formattedDate = date.toLocaleDateString('pt-BR');
+    
+      // Verificar se a data já está no objeto groupedData
+      if (groupedData[formattedDate]) {
+        // Se a data já existir, adicione o valor do gasto à soma existente
+        groupedData[formattedDate] += parseFloat(spent.value);
+      } else {
+        // Se a data não existir, crie uma nova entrada com o valor do gasto
+        groupedData[formattedDate] = parseFloat(spent.value);
+      }
+    });
+    
+    // Extrair as datas e os valores agrupados
+    var dates = Object.keys(groupedData);
+    var values = Object.values(groupedData);
 // Configurar o gráfico com as datas e os valores dos gastos
 var chart = {
   series: [

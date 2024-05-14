@@ -7,10 +7,28 @@ use App\Models\SpentModel;
 use App\Models\SalaryModel;
 use App\Models\BalanceModel;
 use App\Controllers\BaseController;
+use App\Models\ExpenseBalanceModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Dash extends BaseController
-{
+
+{   
+    private $spentModel;
+    private $balanceModel;
+    private $salaryModel;
+    private $piggyModel;
+    private $expenseBalanceModel;
+
+
+
+    public function __construct() {
+        $this->spentModel = new SpentModel();
+        $this->balanceModel = new BalanceModel();
+        $this->salaryModel = new SalaryModel();
+        $this->piggyModel = new PiggyModel();
+        $this->expenseBalanceModel = new ExpenseBalanceModel();
+    }
+    
     public function index()
     {
         if (!session()->has('user')) {
@@ -20,24 +38,20 @@ class Dash extends BaseController
     
         $userId = session()->get('user')->id;
     
-        $spentModel = new SpentModel();
-        $amount_spent = $spentModel->getUserSpentData($userId);
-    
-        $balanceModel = new BalanceModel();
-        $balance = $balanceModel->getUserBalanceData($userId);
-    
-        $salaryModel = new SalaryModel();
-        $salary = $salaryModel->getUserSalaryData($userId);
-    
-        $piggyModel = new PiggyModel();
-        $piggyData = $piggyModel->getUserPiggyData($userId);
+        $amount_spent = $this->spentModel->getUserSpentData($userId);
+        $balance = $this->balanceModel->getUserBalanceData($userId);
+        $salary = $this->salaryModel->getUserSalaryData($userId);
+        $piggyData = $this->piggyModel->getUserPiggyData($userId);
+        $expenseBalanceData = $this->expenseBalanceModel->getUserExpenseBalanceData($userId);
+        
     
         // Criar uma array pai contendo os dados dos gastos, saldo, salário e piggy
         $data = [
             'amount_spent' => $amount_spent,
             'balance' => $balance,
             'salary' => $salary,
-            'piggy' => $piggyData
+            'piggy' => $piggyData,
+            'expense_balance' => $expenseBalanceData,
         ];
     
         // Carregar a view passando os dados recuperados

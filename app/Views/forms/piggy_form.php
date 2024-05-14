@@ -9,7 +9,7 @@ namespace App\Views\forms;
 
 <?php $this->section('content') ?>
 
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">

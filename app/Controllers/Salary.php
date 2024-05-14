@@ -38,7 +38,7 @@ class Salary extends BaseController
         }
 
         // Armazenar o salário na sessão
-        session()->set('salario', $salario);
+        // session()->set('salario', $salario);
 
         // Criar um novo registro de salário na tabela salaries
         $salaryModel = new SalaryModel();

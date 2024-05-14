@@ -16,9 +16,9 @@
     <?php
     $totalGastos = 0;
 
-    foreach ($amount_spent as $gasto) {
+    foreach ($expense_balance as $gasto) {
         // Adicionar o valor do gasto ao total
-        $totalGastos += $gasto->value;
+        $totalGastos += $gasto->balance;
     }
     // Exibir o total de gastos
     ?>
@@ -31,7 +31,7 @@
                     <strong>
                         <i class="bi bi-currency-dollar"></i> Resumo
                     </strong>
-                    <a href="#" class="badge bg-success rounded-3 fw-semibold">Ver mais</a>
+                    <a href="#recentTransactionsTable   " class="badge bg-success rounded-3 fw-semibold">Ver mais</a>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-success"><span class="bi bi-wallet2"></span> Saldo Disponível</h5>
@@ -101,7 +101,7 @@
     </div>
     <!--  Row 1 -->
     <div class="row">
-        <div class="col-lg-12 m-5 d-flex align-items-strech">
+        <div class="col-lg-12 my-4 d-flex align-items-strech">
         <div class="card w-100 bg-light-info">
                 <div class="card-body">
                     <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
@@ -190,7 +190,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4 d-flex align-items-stretch">
+        <!-- <div class="col-lg-4 d-flex align-items-stretch">
             <div class="card w-100">
                 <div class="card-body p-4">
                     <div class="mb-4">
@@ -250,134 +250,81 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="card w-100">
-                <div class="card-body p-4">
-                    <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
-                    <div class="table-responsive">
-                        <table class="table text-nowrap mb-0 align-middle">
-                            <thead class="text-dark fs-4">
-                                <tr>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Id</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Assigned</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Name</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Priority</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Budget</h6>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">1</h6>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                                        <span class="fw-normal">Web Designer</span>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <p class="mb-0 fw-normal">Elite Admin</p>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
-                                        </div>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">2</h6>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-                                        <span class="fw-normal">Project Manager</span>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <p class="mb-0 fw-normal">Real Homes WP Theme</p>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
-                                        </div>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0 fs-4">$24.5k</h6>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">3</h6>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-                                        <span class="fw-normal">Project Manager</span>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <p class="mb-0 fw-normal">MedicalPro WP Theme</p>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="badge bg-danger rounded-3 fw-semibold">High</span>
-                                        </div>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">4</h6>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-                                        <span class="fw-normal">Frontend Engineer</span>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <p class="mb-0 fw-normal">Hosting Press HTML</p>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <span class="badge bg-success rounded-3 fw-semibold">Critical</span>
-                                        </div>
-                                    </td>
-                                    <td class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0 fs-4">$2.4k</h6>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        </div> -->
+        <div class="col-lg-12 d-flex align-items-stretch">
+    <div class="card w-100">
+        <div class="card-body p-4">
+        <?php if (!empty($expense_balance)): ?>
+    <?php $saldo = $expense_balance[0]->balance; ?>
+    <h5 class="card-title fw-semibold mb-4 d-flex justify-content-around text-info">Transações Recentes - Saldo: <?= $saldo; ?></h5>
+<?php endif; ?>
+            <div class="table-responsive">
+                <table id="recentTransactionsTable" class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">ID</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Valor</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Descrição</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">Data de Criação</h6>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os dados serão preenchidos dinamicamente aqui -->
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+</div>
+
     </div>
 
     <div class="py-6 px-6 text-center">
         <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
     </div>
 </div>
-<script>
-    var spentData = <?= json_encode($amount_spent) ?>;
 
-</script> 
 <?php echo $this->endSection() ?>
 
 <?php echo $this->section('scripts') ?>
 
+<script> var spentData = <?= json_encode($amount_spent) ?> ;</script> 
+
+<script src="https://cdn.datatables.net/v/bs4/dt-2.0.5/r-3.0.2/datatables.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#recentTransactionsTable').DataTable({
+        ajax: '<?php echo site_url('spent/recoverExpenses'); ?>', // Use a URL correta aqui
+        columns: [{
+                data: 'id'
+            },
+            {
+                data: 'value'
+            },
+            {
+                data: 'descricao'
+            },
+            {
+                data: 'created_at'
+            },
+        ],
+        "deferRender": true,
+        "processing": true,
+        "responsive": true,
+        "pagingType": $(window).width() < 768 ? "simple" : "simple_numbers"
+    });
+});
+
+</script>
 
 
 <!--Aqui coloco os estilos da view-->

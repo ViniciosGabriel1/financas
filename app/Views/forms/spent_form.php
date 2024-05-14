@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <h5 class="card-title fw-semibold mb-4">Disabled forms</h5>
+                <!-- <h5 class="card-title fw-semibold mb-4">Disabled forms</h5>
                 <div class="card mb-0">
                     <div class="card-body">
                         <form>
@@ -72,7 +72,7 @@
                             </fieldset>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
