@@ -16,15 +16,15 @@
     <?php
     $totalGastos = 0;
 
-    foreach ($expense_balance as $gasto) {
+    foreach ($amount_spent as $gasto) {
         // Adicionar o valor do gasto ao total
-        $totalGastos += $gasto->balance;
+        $totalGastos += $gasto->value;
     }
-    // Exibir o total de gastos
     ?>
 
 
     <div class="row">
+
         <div class="col-sm-6 col-xl-4">
             <div class="card text-bg-light-success m-4 hover-scale" style="max-width: 18rem;">
                 <div class="card-header  text-success d-flex justify-content-between align-items-center">
@@ -37,7 +37,7 @@
                     <h5 class="card-title text-success"><span class="bi bi-wallet2"></span> Saldo Disponível</h5>
                     <?php
                     // Calcular o saldo disponível
-                    $saldo = $balance->value - $totalGastos;
+                    $saldo = $salary->value - $totalGastos;
 
                     // Verificar se o saldo é negativo (indicando déficit)
                     if ($saldo < 0) {
@@ -254,10 +254,8 @@
         <div class="col-lg-12 d-flex align-items-stretch">
     <div class="card w-100">
         <div class="card-body p-4">
-        <?php if (!empty($expense_balance)): ?>
-    <?php $saldo = $expense_balance[0]->balance; ?>
-    <h5 class="card-title fw-semibold mb-4 d-flex justify-content-around text-info">Transações Recentes - Saldo: <?= $saldo; ?></h5>
-<?php endif; ?>
+
+    <h5 class="card-title fw-semibold mb-4 d-flex justify-content-around text-info">Transações Recentes - Saldo: <?= $totalGastos; ?></h5>
             <div class="table-responsive">
                 <table id="recentTransactionsTable" class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">

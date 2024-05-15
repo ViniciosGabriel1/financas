@@ -45,8 +45,8 @@ class Salary extends BaseController
         $salaryModel->where('user_id', $userId)->set(['value' => $salario])->update();
 
         // Atualizar o registro de saldo na tabela balances
-        $balanceModel = new BalanceModel();
-        $balanceModel->where('user_id', $userId)->set(['value' => $salario])->update();
+        // $balanceModel = new BalanceModel();
+        // $balanceModel->where('user_id', $userId)->set(['value' => $salario])->update();
 
 
         // Redirecionar para a view 'index' no controlador 'Dash'
